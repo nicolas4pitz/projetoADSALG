@@ -1,13 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Dimension;
 
 public class Game extends Canvas {
     public static JFrame jframe;
     private Thread thread;
     private boolean isRunning;
 
+    private static int WIDTH = 300;
+    private static int HEIGHT = 400;
+    private static int SCALE = 2;
 
     public Game(){
+        setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
         frameInit();
     }
 
