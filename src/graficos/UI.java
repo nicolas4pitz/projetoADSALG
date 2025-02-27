@@ -8,6 +8,7 @@ import entities.Player;
 import main.Game;
 import world.World;
 
+//Interface do jogo
 public class UI {
 
     public static int seconds = 0;
@@ -22,12 +23,7 @@ public class UI {
             if(seconds == 60){
                 seconds = 0;
                 minutes++;
-                if(UI.minutes % 1 == 0){
-                    World.CICLO++;
-                    if(World.CICLO > World.noite){
-                        World.CICLO = 0;
-                    }
-                }
+
             }
         }
     }

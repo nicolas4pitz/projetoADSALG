@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 
 import main.Game;
 
+//Forma da animação da explosão
 public class Explosion extends Entity{
 
     private int frames = 0;

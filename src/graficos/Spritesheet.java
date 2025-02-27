@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+//Sistema de criação de spritesheet, usado para todas as entidades
 public class Spritesheet {
 
     private BufferedImage spritesheet;

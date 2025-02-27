@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 
 import main.Game;
 
+//Controle do inimigo e forma como o objeto reaje as balas, e tick do jogo
 public class Enemy extends Entity{
 
     public int life = 3;

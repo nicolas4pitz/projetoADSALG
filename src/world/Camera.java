@@ -1,5 +1,6 @@
 package world;
 
+//Formato padrão de como funcionaria a camera, caso fosse usada
 public class Camera {
 
     public static int x = 0;

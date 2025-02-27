@@ -1,5 +1,6 @@
 package world;
 
+//Não usado
 public class Node {
 
     public Vector2i tile;

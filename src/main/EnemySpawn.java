@@ -3,6 +3,7 @@ package main;
 import entities.Enemy;
 import entities.Entity;
 
+//Controla o Spawn de Inimigo
 public class EnemySpawn {
 
     public int targetTime = 60*2;

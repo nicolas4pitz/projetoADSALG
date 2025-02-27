@@ -1,5 +1,6 @@
 package world;
 
+//Sistema para aplicação e manipulação da posição das entidades
 public class Vector2i {
     public int x, y;
 

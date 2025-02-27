@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import main.Game;
 
 
-
+//Controle do player e sua renderização
 public class Player extends Entity{
 
     public boolean right, left;

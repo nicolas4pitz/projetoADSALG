@@ -13,6 +13,7 @@ import world.Node;
 import world.Vector2i;
 import world.World;
 
+//Formato padrão de renderização de todas as entidades do jogo e com metodo proprio de renderização
 public class Entity {
 
     protected List<Node> path;

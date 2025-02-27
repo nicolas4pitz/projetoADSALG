@@ -50,16 +50,6 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
     public int backY2 = 160;
     public int backspd = 1;
 
-    public int xx, yy;
-
-    public static int entrada = 1;
-    public static int comecar = 2;
-    public static int jogando = 3;
-    public static int estado_cena = entrada;
-    public int timeCena = 0, maxTimeCena = 60*3;
-
-    public boolean saveGame = false;
-
     public static World world;
 
     public static int score=0;
@@ -91,6 +81,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
         entities.add(player);
     }
 
+    //Criação da Janela JFrame
     public void initFrame() {
         frame = new JFrame("Space invaders");
         frame.add(this);
@@ -102,12 +93,14 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
         requestFocus();
     }
 
+    //Cria a thread do jogo que chamará até para o run()
     public synchronized void start(){
         thread = new Thread(this);
         isRunning = true;
         thread.start();
     }
 
+    //Para a thread
     public synchronized void stop(){
         isRunning = false;
         try{
@@ -117,12 +110,14 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
         }
     }
 
+    //Cria a instância do game, e chama o start para iniciar o jogo
     public static void main(String args[]){
         Game game = new Game();
         game.start();
 
     }
 
+    //Atualiza todas as entidades
     public void tick(){
         for (int i = 0; i < entities.size(); i++){
             Entity e = entities.get(i);
@@ -143,18 +138,18 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
         }
     }
 
-
+    //Cria a forma de renderização
     public void render(){
-        // Obtenha a estratégia de buffer para o canvas
+        // Obtem a estratégia de buffer para o canvas
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null){
-            // Crie uma nova estratégia de buffer com 3 buffers se não houver uma estratégia existente
+            // Cria uma nova estratégia de buffer com 3 buffers se não houver uma estratégia existente
             this.createBufferStrategy(3);
             return;
         }
-        // Obtenha o objeto gráfico para a estratégia de buffer
+        // Obtem o objeto gráfico para a estratégia de buffer
         Graphics g = image.getGraphics();
-        // Defina a cor de fundo como preto
+        // Define a cor de fundo como preto
         g.setColor(new Color(0, 0, 0));
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
@@ -185,6 +180,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 
     }
 
+    //Controla a taxa de atualização para rodar 60fps
     @Override
     public void run() {
         long lastTime = System.nanoTime();
@@ -214,6 +210,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
         stop();
     }
 
+    //Move o jogador na direção, baseado na tecla
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
@@ -227,6 +224,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
         }
     }
 
+    //Solta e desativa o estado de andar do player
     @Override
     public void keyReleased(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
